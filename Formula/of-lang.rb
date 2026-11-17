@@ -1,0 +1,28 @@
+class OfLang < Formula
+  desc "Command-line tool for the OpenFjord modeling language"
+  homepage "https://github.com/openfjord/of-lang"
+  license "Apache-2.0"
+  head "https://github.com/openfjord/of-lang.git", branch: "main"
+
+  depends_on "go" => :build
+
+  def install
+    cd "of-lang-cli" do
+      system "go", "build", *std_go_args, "./cmd/of-lang"
+    end
+  end
+
+  test do
+    (testpath/"demo/package.yaml").write <<~YAML
+      package: demo
+      version: 0.1.0
+      namespace: https://example.com/demo#
+    YAML
+    (testpath/"demo/dish.of.yaml").write <<~YAML
+      Dish:
+        is: Kind
+        definition: A dish on the menu.
+    YAML
+    assert_match "ok", shell_output("#{bin}/of-lang check #{testpath}/demo")
+  end
+end
