@@ -7,7 +7,7 @@ class OfLang < Formula
   depends_on "go" => :build
 
   def install
-    cd "of-lang-cli" do
+    cd "cli" do
       system "go", "build", *std_go_args, "./cmd/of-lang"
     end
   end
