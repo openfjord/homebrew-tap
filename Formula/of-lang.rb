@@ -1,8 +1,8 @@
 class OfLang < Formula
   desc "Command-line tool for the OpenFjord modeling language"
   homepage "https://github.com/openfjord/of-lang"
-  url "https://github.com/openfjord/of-lang/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "4006d0863009736411668313e43bba98e93731968f64e1bd0bada942d8c40b3f"
+  url "https://github.com/openfjord/of-lang/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "6d4240d8d8272dacec2adae558dd6565486b58c72181341587e0b8ec91da7554"
   license "Apache-2.0"
   head "https://github.com/openfjord/of-lang.git", branch: "main"
 
